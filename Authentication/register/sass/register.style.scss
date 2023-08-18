@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&family=Open+Sans:ital,wght@0,400;1,300&family=Oswald:wght@600&family=PT+Serif:wght@700&family=Raleway:ital,wght@1,100;1,400&family=Roboto+Condensed&family=Roboto:wght@300&display=swap');
+@import '../../../sass_general/variables.scss';
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    // font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: rgb(243,242,240);
+}
+
+nav {
+    div#regNav {
+        height: 8vh;
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        p {
+            font-size: 6.5vh;
+            font-weight: bold;
+            color: $mainColor;
+            border-radius: 1px solid
+        };
+        > img {
+            height: 100%;
+        }
+    }
+}
+
+#content {
+    @media (min-width: 1200) {
+        > p {
+            font-size: 35px;
+        };
+        button#showPassBtn {
+            font-size: 12px
+        }
+    }
+    @media (max-width: 992px) {
+        > p {
+            font-size: 24px;
+        };
+        button#showPassBtn {
+            font-size: 12px
+        }
+    }
+    @media (max-width: 768px) {
+        > p {
+            font-size: 19px;
+        };
+        button#showPassBtn {
+            font-size: 10px
+        }
+    }
+    form {
+        background-color: #fff;
+        button#agreeBtn {
+            background-color: $mainColor;
+            &:hover {
+                background-color: $mainHoverColor;
+            }
+        }
+    };
+    p#instruc {
+        font-size: 11px;
+        color: $textGrayCol
+    };
+    div#contGoogle {
+        &:hover {
+            cursor: pointer;
+            border: 2px solid black !important;
+            transition: 0.5s;
+        }
+    }
+    button#showPassBtn {
+        color: $mainColor;
+        background-color: #fff;
+    }
+
+}
+
+.validationMsg {
+    font-size: 12px
+}
+
+.text-success {
+    color: rgb(2, 188, 2);
+}

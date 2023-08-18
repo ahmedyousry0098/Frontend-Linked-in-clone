@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&family=Open+Sans:ital,wght@0,400;1,300&family=Oswald:wght@600&family=PT+Serif:wght@700&family=Raleway:ital,wght@1,100;1,400&family=Roboto+Condensed&family=Roboto:wght@300&display=swap");
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(243, 242, 240);
+}
+
+nav div#regNav {
+  height: 8vh;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+nav div#regNav p {
+  font-size: 6.5vh;
+  font-weight: bold;
+  color: rgb(10, 102, 194);
+  border-radius: 1px solid;
+}
+nav div#regNav > img {
+  height: 100%;
+}
+
+@media (min-width: 1200) {
+  #content > p {
+    font-size: 35px;
+  }
+  #content button#showPassBtn {
+    font-size: 12px;
+  }
+}
+@media (max-width: 992px) {
+  #content > p {
+    font-size: 24px;
+  }
+  #content button#showPassBtn {
+    font-size: 12px;
+  }
+}
+@media (max-width: 768px) {
+  #content > p {
+    font-size: 19px;
+  }
+  #content button#showPassBtn {
+    font-size: 10px;
+  }
+}
+#content form {
+  background-color: #fff;
+}
+#content form button#agreeBtn {
+  background-color: rgb(10, 102, 194);
+}
+#content form button#agreeBtn:hover {
+  background-color: rgb(4, 72, 141);
+}
+#content p#instruc {
+  font-size: 11px;
+  color: rgb(102, 102, 102);
+}
+#content div#contGoogle:hover {
+  cursor: pointer;
+  border: 2px solid black !important;
+  transition: 0.5s;
+}
+#content button#showPassBtn {
+  color: rgb(10, 102, 194);
+  background-color: #fff;
+}
+
+.validationMsg {
+  font-size: 12px;
+}
+
+.text-success {
+  color: rgb(2, 188, 2);
+}
+
+/*# sourceMappingURL=register.style.css.map */
