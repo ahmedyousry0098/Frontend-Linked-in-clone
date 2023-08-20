@@ -1,0 +1,56 @@
+@import '../../sass_general/variables';
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+@media (max-width: 1100px) {
+    form#mainSearch {
+        display: none;
+    };
+};
+@media (max-width: 1000px) {
+    .nav-item-txt {
+        display: none;
+        border: 1px solid black;
+        transition: 1s;
+    };
+    .cust-nav-item {
+        align-items: center !important;
+        justify-content: center !important;
+        padding-top: 15px !important;
+    };
+}
+
+body {
+    background-color: $mainBGC;
+};
+
+nav {
+    padding-bottom: 0px !important;
+    padding-top: 0px !important;
+    height: 8vh;
+    background-color: #fff;
+    div {
+        height: 100%;
+        form#mainSearch {
+            background-color: $mainBGC;
+            width: 50% !important;
+            input {
+                width: 85%;
+                border: 0px;
+                background-color: $mainBGC;
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    };
+}
+
+.cust-nav-item {
+    border-bottom: 2px solid black !important;
+    padding: 0px;
+}
+
