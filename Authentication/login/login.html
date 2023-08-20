@@ -1,11 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link 
+            rel="stylesheet" 
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" 
+            integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg==" 
+            crossorigin="anonymous" referrerpolicy="no-referrer"
+        />
+        <link rel="stylesheet" href="../auth.style.css">
+        <title>Login</title>
+    </head>
+    <body>
+
+        <nav class="my-1">
+            <div id="regNav" class="container">
+                <p>Linked</p>
+                <img src="../../assets/IN.png" class="mx-2">
+            </div>
+        </nav>
+
+        <div class="alert d-none mt-4 text-center" role="alert"></div>
+
+        <div id="content" class="container mt-5">
+            <form id="registerForm" class="rounded-5 col-lg-4 col-md-8 col-sm-12 d-flex flex-column justify-content-around p-3 m-auto shadow-lg" onsubmit="">
+                <div class="d-flex flex-column">
+                    <p class="h3"> Sign In </p>
+                    <p style="font-size: 14px;"> Stay updated on your professional world </p>
+                </div>
+                <div class="form-group my-2 position-relative">
+                    <label for="emailInput" class="fw-bold">Email</label>
+                    <input id="emailInput" class="form-control border-1 border-black rounded-3 mb-4 my-2" type="email" placeholder="Email..">
+                    <p id="emailValidate" class="validationMsg fw-bold position-absolute" style="bottom: -16px"></p>
+                </div>
+                <div class="form-group my-2 position-relative">
+                    <label for="passInput" class="fw-bold">Password</label>
+                    <input id="passInput" class="form-control border-1 border-black rounded-3 mb-5 my-2" type="password" placeholder="password..">
+                    <p id="passValidate" class="validationMsg fw-bold position-absolute" style="bottom: 1px"></p>
+                </div>
+                <!-- <p id="instruc" class="mx-4">
+                    By clicking Agree & Join, you agree to the LinkedIn 
+                    <a 
+                        href="https://www.linkedin.com/legal/user-agreement?session_redirect=https%3A%2F%2Fwww%2Elinkedin%2Ecom%2Ffeed%2F&trk=registration-frontend_join-form-user-agreement" 
+                        target="_blank"
+                        class="link-primary fw-bold"
+                    >
+                        User Agreement
+                    </a>
+                    , 
+                    <a 
+                        href="https://www.linkedin.com/legal/privacy-policy?session_redirect=https%3A%2F%2Fwww%2Elinkedin%2Ecom%2Ffeed%2F&trk=registration-frontend_join-form-privacy-policy"
+                        target="_blank"
+                        class="link-primary fw-bold"
+                    >
+                        Privacy Policy
+                    </a>
+                    , and 
+                    <a 
+                        href="https://www.linkedin.com/legal/cookie-policy?session_redirect=https%3A%2F%2Fwww%2Elinkedin%2Ecom%2Ffeed%2F&trk=registration-frontend_join-form-cookie-policy"
+                        target="_blank"
+                        class="link-primary fw-bold"
+                    >
+                        Cookie Policy.
+                    </a>
+                </p> -->
+                <button id="agreeBtn" type="submit" class="btn btn-primary mb-2 rounded-5" onclick="event.preventDefault();handleLogin()">Sign In</button>
+
+                <p class="or">OR</p>
+
+                <div id="contGoogle" class="w-75 border border-1 rounded-5 m-auto text-center py-2 d-flex flex-row justify-content-center align-items-center mt-2">
+                    <p class="mx-2 m-auto">Continue With Google</p>
+                    <img src="../../assets/G.png" height="10%" width="10%" class="">
+                </div>
+
+                <div class="mt-4">
+                    <p class="text-center">
+                        New on LinkedIn? 
+                        <a href="../register/register.html" class="link-primary">
+                            Register Now
+                        </a>
+                    </p>
+                </div>
+            </form>
+            
+        </div>
+        
+        <script 
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js" 
+            integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w==" 
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+        <script src="../authentication.script.js"></script>
+    </body>
 </html>

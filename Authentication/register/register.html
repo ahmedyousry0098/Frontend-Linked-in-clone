@@ -9,7 +9,7 @@
             integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg==" 
             crossorigin="anonymous" referrerpolicy="no-referrer" 
         />
-        <link rel="stylesheet" href="./register.style.css">
+        <link rel="stylesheet" href="../auth.style.css">
         <title>Register</title>
     </head>
     <body>
@@ -21,20 +21,22 @@
             </div>
         </nav>
 
+        <div class="alert d-none mt-4 text-center" role="alert"></div>
+
         <div id="content" class="container mt-5">
             <p class="text-center fs-2">
                 Make the most of your professional life
             </p>
-            <form class="rounded-5 col-lg-4 col-md-8 col-sm-12 d-flex flex-column justify-content-around p-3 m-auto">
-                <div class="form-group my-2">
+            <form id="registerForm" class="rounded-5 col-lg-4 col-md-8 col-sm-12 d-flex flex-column justify-content-around p-3 m-auto shadow-lg" onsubmit="">
+                <div class="form-group my-2 h-50 position-relative">
                     <label for="emailInput" class="fw-bold">Email</label>
-                    <input id="emailInput" class="form-control border-1 border-black rounded-3 my-2" type="email" placeholder="Email..">
-                    <p id="emailValidate" class="validationMsg"></p>
+                    <input id="emailInput" class="form-control border-1 border-black rounded-3 mb-4 my-2" type="email" placeholder="Email..">
+                    <p id="emailValidate" class="validationMsg fw-bold position-absolute ms-1" style="bottom: -16px"></p>
                 </div>
                 <div class="form-group my-2 position-relative">
                     <label for="passInput" class="fw-bold">Password</label>
-                    <input id="passInput" class="form-control border-1 border-black rounded-3 my-2" type="password" placeholder="password..">
-                    <p id="passValidate" class="validationMsg"></p>
+                    <input id="passInput" class="form-control border-1 border-black rounded-3 mb-5 my-2" type="password" placeholder="password..">
+                    <p id="passValidate" class="validationMsg fw-bold position-absolute ms-1" style="bottom: 1px"></p>
                 </div>
                 <p id="instruc" class="mx-4">
                     By clicking Agree & Join, you agree to the LinkedIn 
@@ -62,9 +64,9 @@
                         Cookie Policy.
                     </a>
                 </p>
-                <button id="agreeBtn" type="submit" class="btn btn-primary mb-2 rounded-5">Agree & Join</button>
+                <button id="agreeBtn" type="submit" class="btn btn-primary mb-2 rounded-5" onclick="event.preventDefault();handleRegister()">Agree & Join</button>
 
-                <hr>
+                <p class="or">OR</p>
 
                 <div id="contGoogle" class="w-75 border border-1 rounded-5 m-auto text-center py-2 d-flex flex-row justify-content-center align-items-center mt-2">
                     <p class="mx-2 m-auto">Continue With Google</p>
@@ -80,18 +82,14 @@
                     </p>
                 </div>
             </form>
-            <p></p>
+            
         </div>
-
-        <footer>
-
-        </footer>
         
         <script 
             src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js" 
             integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w==" 
             crossorigin="anonymous" referrerpolicy="no-referrer">
         </script>
-        <script src="register.js"></script>
+        <script src="../authentication.script.js"></script>
     </body>
 </html>
