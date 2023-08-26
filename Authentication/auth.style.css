@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: rgb(243, 242, 240);
+  background-color: rgb(227, 226, 224);
 }
 
 nav div#regNav {
@@ -118,6 +118,10 @@ nav div#regNav > img {
   border-bottom: 0.5px solid grey;
   top: 50%;
   left: 0px;
+}
+
+.is-valid {
+  z-index: 5 !important;
 }
 
 /*# sourceMappingURL=auth.style.css.map */

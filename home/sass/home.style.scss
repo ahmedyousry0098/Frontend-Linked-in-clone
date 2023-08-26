@@ -3,18 +3,37 @@
 * {
     padding: 0px;
     margin: 0px;
+    box-sizing: border-box;
 }
 
-@media (max-width: 1100px) {
+@mixin postItem() {
+    color: $mainColor; 
+    background-color: transparent;
+    border-radius: 5px;
+    &:hover {
+        background-color: $mainBGC;
+        cursor: pointer;
+    }
+} 
+
+@media (max-width: 992px) {
     form#mainSearch {
-        display: none;
+        border: 0px;
     };
+    .nav-item-txt {
+        font-size: 12px !important;
+    }
 };
-@media (max-width: 1000px) {
+@media (max-width: 770px) {
     .nav-item-txt {
         display: none;
         border: 1px solid black;
         transition: 1s;
+    };
+    form#mainSearch {
+        > input {
+            font-size: 12px
+        }
     };
     .cust-nav-item {
         align-items: center !important;
@@ -23,20 +42,25 @@
     };
 }
 
+@media (max-width: 425px) {
+    
+}
+
 body {
     background-color: $mainBGC;
 };
 
 nav {
+
     padding-bottom: 0px !important;
     padding-top: 0px !important;
-    height: 8vh;
+    height: 50px;
     background-color: #fff;
     div {
         height: 100%;
         form#mainSearch {
             background-color: $mainBGC;
-            width: 50% !important;
+            width: 50%;
             input {
                 width: 85%;
                 border: 0px;
@@ -45,12 +69,158 @@ nav {
                     outline: none;
                 }
             }
+            > i {
+                margin-right: 3px
+            }
         }
     };
+    .dropdown-toggle {
+        outline: 0px;
+        &:focus {
+            outline: 0px;
+        }
+    }
 }
 
 .cust-nav-item {
-    border-bottom: 2px solid black !important;
     padding: 0px;
+    &:hover {
+        transform: scale(1.05);
+        transition: 0.5s;
+    };
+    z-index: 5;
 }
 
+.active {
+    border-bottom: 2px solid black !important;
+    &:hover {
+        transform: scale(1);
+        // transition: 0.5s;
+    }
+    // color: $mainColor !important;
+}
+
+div#pageContainer {
+    #SuggContacts {
+        background-color: #fff;
+        width: 100%;
+        border-radius: 15px;
+    }
+    div {
+        section#postsController {
+            height: 15vh;
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 3px;
+            > div {
+                width: 100%;
+                overflow: hidden;
+                > img {
+                    width: 50px;
+                    border-radius: 50%;
+                    @media (max-width: 390px) {
+                        & {
+                            width: 40px;
+                        }
+                    }
+                }
+                > div {
+                    > input {
+                        width: 100%;
+                        height: 100%;
+                        &:hover {
+                            background-color: $mainBGC;
+                        }
+                        &:focus {
+                            outline: 0px;
+                        }
+                    }
+                    > button {
+                        @include postItem()
+                    }
+                }
+            }
+            
+        };
+    };
+}
+
+
+.post-container {
+    background-color: #fff;
+}
+
+.user-img {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.username-txt {
+    margin-bottom: 0px !important;
+}
+
+.position-txt {
+    color: $textGrayCol;
+    font-size: 11px;
+    margin-bottom: 0px !important;
+}
+
+.post-img {
+    width: 100%;
+    margin: 0 auto !important;
+}
+
+.post-interaction {
+    @include postItem();
+}
+
+.post-item {
+    @include postItem();
+}
+
+.comment-container {
+    background-color: $mainBGC;
+    border-radius: 8px;
+    width: 90% !important;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 1140px) {
+    #suggContainer {
+        display: none;
+    };
+    #profileContainer {
+        display: none;
+    }
+}
+
+#profileDetails {
+    background-color: #fff !important;
+    // height: 200px;
+    border-radius: 15px;
+}
+
+#txtAreaContainer {
+    background-color: rgb(0,0,0,0.5);
+    z-index: 1;
+    width: 100%;
+    height: 100vh;
+    transition: 2s;
+}
+
+#postTextArea {
+    background-color: #fff;
+    width: 50%;
+    min-height: 40%;
+    border-radius: 20px;
+    
+}
+
+textarea {
+    outline: 0px;
+}
+
+// .active-search {
+//     transform: scaleX(2);
+// }

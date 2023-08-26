@@ -1,10 +1,22 @@
 const emailInp = document.getElementById('emailInput')
 const passInp = document.getElementById('passInput')
+const usernameInp = document.getElementById('usernameInput')
+const positionInput = document.getElementById('positionInput')
 const agreeBtn = document.getElementById('agreeBtn')
 const alertStatus = document.querySelector('[role="alert"]')
 
+const validateUsername = (username) => {
+    const pattern = /^[a-zA-Z0-9]{3,}( [a-zA-Z0-9]{3,}){0,2}$/
+    return pattern.test(username)
+}
+
+const validatePosition = (username) => {
+    const pattern = /^[a-zA-Z0-9]+( [a-zA-Z0-9]+){0,5}$/
+    return pattern.test(username)
+}
+
 const validateEmail = (email) => {
-    const pattern = /^[A-Za-z0-9]{3,25}@(gmail|outlook|yahoo).(com|org|net)$/
+    const pattern = /^[A-Za-z0-9._]{3,25}@(gmail|outlook|yahoo).(com|org|net)$/
     return pattern.test(email)
 }
 
@@ -13,7 +25,7 @@ const validatePass = (password) => {
     return pattern.test(password)
 }
 
-const resetInput = (resetValue, ...input) => {
+const resetInput = (resetValue=false, ...input) => {
     for (let inp of input) {
         if (resetValue) {
             inp.value = ""
@@ -39,13 +51,47 @@ const toggleDisableBtn = (btn, isDisable, title="") => {
     }
 }
 
-const disAppearAlert = (alertDiv, duration=3000) => {
+const disAppearAlert = (alertDiv, duration=3500) => {
     return setTimeout(function() {
         alertDiv.innerHTML = ''
         alertDiv.classList.remove('alert-success', 'alert-danger')
         alertDiv.classList.add('d-none')
     }, duration)
 }
+
+usernameInp.addEventListener('blur', function (e) {
+    e.preventDefault()
+    const usernameValidationPar = document.getElementById('usernameValidate')
+    if (!validateUsername(this.value)) {
+        usernameValidationPar.innerHTML = "In-valid username";
+        usernameValidationPar.classList.add('text-danger')
+        this.classList.add('is-invalid')
+        this.classList.replace('border-black', 'border-danger')
+    }
+    else {
+        usernameValidationPar.innerHTML = "Looks Good";
+        usernameValidationPar.classList.add('text-success')
+        this.classList.add('is-valid')
+        this.classList.replace('border-danger', 'border-black')
+    }
+})
+
+positionInput.addEventListener('blur', function (e) {
+    e.preventDefault()
+    const positionValidationPar = document.getElementById('positionValidate')
+    if (!validatePosition(this.value)) {
+        positionValidationPar.innerHTML = "In-valid Position";
+        positionValidationPar.classList.add('text-danger')
+        this.classList.add('is-invalid')
+        this.classList.replace('border-black', 'border-danger')
+    }
+    else {
+        positionValidationPar.innerHTML = "Looks Good";
+        positionValidationPar.classList.add('text-success')
+        this.classList.add('is-valid')
+        this.classList.replace('border-danger', 'border-black')
+    }
+})
 
 emailInp.addEventListener('blur', function (e) {
     e.preventDefault()
@@ -62,11 +108,6 @@ emailInp.addEventListener('blur', function (e) {
         this.classList.add('is-valid')
         this.classList.replace('border-danger', 'border-black')
     }
-})
-
-emailInp.addEventListener('focus', function(e) {
-    e.preventDefault()
-    resetInput(false, this)
 })
 
 passInp.addEventListener('blur', function (e) {
@@ -86,16 +127,19 @@ passInp.addEventListener('blur', function (e) {
     }
 })
 
-passInp.addEventListener('focus', function(e) {
-    e.preventDefault()
-    resetInput(false, this)
-})
+for (let input of [usernameInp, emailInp, passInp, positionInput]) {
+    input.addEventListener('focus', function(e) {
+        e.preventDefault()
+        resetInput(false, this)
+    })
+}
+
 
 function realTimeValidate() {
-    const [email, password] = [emailInp.value, passInp.value]
-    console.log({email, password});
-    console.log(validateEmail(email));
-    if ( !validateEmail(email) || !validatePass(password) ) {
+    const [email, password, username, position] = [emailInp.value, passInp.value, usernameInp.value, positionInput.value]
+    console.log(email, password, username, position);
+    if ( !validateEmail(email) || !validatePass(password) || !validateUsername(username) || !validatePosition(position) ) {
+
         agreeBtn.disabled = true;
         agreeBtn.classList.replace('btn-primary', 'disabled')
     } else {
@@ -104,19 +148,19 @@ function realTimeValidate() {
     }
 }
 
-[emailInp, passInp].forEach(inp => inp.addEventListener('input', realTimeValidate))
+[emailInp, passInp, usernameInp, positionInput].forEach(inp => inp.addEventListener('input', realTimeValidate))
 
-async function action(endpoint) {
-    const email = document.getElementById('emailInput').value
-    const password = document.getElementById('passInput').value
+async function action(endpoint, email, password, username, position) {
     const response = await fetch(`http://localhost:8000/linkedin/${endpoint}`, {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            email, 
-            password
+            email: email.toLowerCase(),
+            password,
+            username,
+            position
         }),
     })
     .catch(err => console.log(err))
@@ -125,7 +169,13 @@ async function action(endpoint) {
 
 async function handleRegister() {
     toggleDisableBtn(agreeBtn, true)
-    const response = await action('register')
+    const [email, password, username, position] = [
+        document.getElementById('emailInput').value, 
+        document.getElementById('passInput').value,
+        document.getElementById('usernameInput').value,
+        document.getElementById('positionInput').value,
+    ]
+    const response = await action('register', email, password, username, position)
     const parsedRes = await response.json()
     alertStatus.classList.remove('d-none')
     if (response.ok) {
@@ -138,21 +188,4 @@ async function handleRegister() {
     }
     toggleDisableBtn(agreeBtn, false, 'Agree, Join')
     disAppearAlert(alertStatus, 5000)
-}
-
-async function handleLogin () {
-    toggleDisableBtn(agreeBtn, true)
-    const response = await action('login');
-    const parsedRes = await response.json()
-    console.log(parsedRes);
-    if (response.ok) {
-        localStorage.setItem('userToken', parsedRes.token)
-        window.open('../../home/home.html')
-    } else {
-        alertStatus.classList.remove('d-none')
-        alertStatus.innerHTML = parsedRes.message
-        alertStatus.classList.add('alert-danger')
-        toggleDisableBtn(agreeBtn, false, 'Sign In')
-        disAppearAlert(alertStatus, 5000)
-    }
 }

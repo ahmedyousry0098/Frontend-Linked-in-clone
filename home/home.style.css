@@ -1,18 +1,25 @@
 * {
   padding: 0px;
   margin: 0px;
+  box-sizing: border-box;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 992px) {
   form#mainSearch {
-    display: none;
+    border: 0px;
+  }
+  .nav-item-txt {
+    font-size: 12px !important;
   }
 }
-@media (max-width: 1000px) {
+@media (max-width: 770px) {
   .nav-item-txt {
     display: none;
     border: 1px solid black;
     transition: 1s;
+  }
+  form#mainSearch > input {
+    font-size: 12px;
   }
   .cust-nav-item {
     align-items: center !important;
@@ -21,34 +28,182 @@
   }
 }
 body {
-  background-color: rgb(243, 242, 240);
+  background-color: rgb(227, 226, 224);
 }
 
 nav {
   padding-bottom: 0px !important;
   padding-top: 0px !important;
-  height: 8vh;
+  height: 50px;
   background-color: #fff;
 }
 nav div {
   height: 100%;
 }
 nav div form#mainSearch {
-  background-color: rgb(243, 242, 240);
-  width: 50% !important;
+  background-color: rgb(227, 226, 224);
+  width: 50%;
 }
 nav div form#mainSearch input {
   width: 85%;
   border: 0px;
-  background-color: rgb(243, 242, 240);
+  background-color: rgb(227, 226, 224);
 }
 nav div form#mainSearch input:focus {
   outline: none;
 }
+nav div form#mainSearch > i {
+  margin-right: 3px;
+}
+nav .dropdown-toggle {
+  outline: 0px;
+}
+nav .dropdown-toggle:focus {
+  outline: 0px;
+}
 
 .cust-nav-item {
-  border-bottom: 2px solid black !important;
   padding: 0px;
+  z-index: 5;
+}
+.cust-nav-item:hover {
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+
+.active {
+  border-bottom: 2px solid black !important;
+}
+.active:hover {
+  transform: scale(1);
+}
+
+div#pageContainer #SuggContacts {
+  background-color: #fff;
+  width: 100%;
+  border-radius: 15px;
+}
+div#pageContainer div section#postsController {
+  height: 15vh;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 3px;
+}
+div#pageContainer div section#postsController > div {
+  width: 100%;
+  overflow: hidden;
+}
+div#pageContainer div section#postsController > div > img {
+  width: 50px;
+  border-radius: 50%;
+}
+@media (max-width: 390px) {
+  div#pageContainer div section#postsController > div > img {
+    width: 40px;
+  }
+}
+div#pageContainer div section#postsController > div > div > input {
+  width: 100%;
+  height: 100%;
+}
+div#pageContainer div section#postsController > div > div > input:hover {
+  background-color: rgb(227, 226, 224);
+}
+div#pageContainer div section#postsController > div > div > input:focus {
+  outline: 0px;
+}
+div#pageContainer div section#postsController > div > div > button {
+  color: rgb(10, 102, 194);
+  background-color: transparent;
+  border-radius: 5px;
+}
+div#pageContainer div section#postsController > div > div > button:hover {
+  background-color: rgb(227, 226, 224);
+  cursor: pointer;
+}
+
+.post-container {
+  background-color: #fff;
+}
+
+.user-img {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.username-txt {
+  margin-bottom: 0px !important;
+}
+
+.position-txt {
+  color: rgb(102, 102, 102);
+  font-size: 11px;
+  margin-bottom: 0px !important;
+}
+
+.post-img {
+  width: 100%;
+  margin: 0 auto !important;
+}
+
+.post-interaction {
+  color: rgb(10, 102, 194);
+  background-color: transparent;
+  border-radius: 5px;
+}
+.post-interaction:hover {
+  background-color: rgb(227, 226, 224);
+  cursor: pointer;
+}
+
+.post-item {
+  color: rgb(10, 102, 194);
+  background-color: transparent;
+  border-radius: 5px;
+}
+.post-item:hover {
+  background-color: rgb(227, 226, 224);
+  cursor: pointer;
+}
+
+.comment-container {
+  background-color: rgb(227, 226, 224);
+  border-radius: 8px;
+  width: 90% !important;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1140px) {
+  #suggContainer {
+    display: none;
+  }
+  #profileContainer {
+    display: none;
+  }
+}
+#profileDetails {
+  background-color: #fff !important;
+  border-radius: 15px;
+}
+
+#txtAreaContainer {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  transition: 2s;
+}
+
+#postTextArea {
+  background-color: #fff;
+  width: 50%;
+  min-height: 40%;
+  border-radius: 20px;
+}
+
+textarea {
+  outline: 0px;
 }
 
 /*# sourceMappingURL=home.style.css.map */

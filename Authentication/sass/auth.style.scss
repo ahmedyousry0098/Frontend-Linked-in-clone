@@ -130,3 +130,7 @@ nav {
     @include hr;
     left: 0px;
 }
+
+.is-valid {
+    z-index: 5 !important;
+}

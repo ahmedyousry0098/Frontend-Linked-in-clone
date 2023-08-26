@@ -31,41 +31,16 @@
                 </div>
                 <div class="form-group my-2 position-relative">
                     <label for="emailInput" class="fw-bold">Email</label>
-                    <input id="emailInput" class="form-control border-1 border-black rounded-3 mb-4 my-2" type="email" placeholder="Email..">
+                    <input id="emailInput" class="form-control border-1 border-black rounded-3 mb-4 my-2" type="email" placeholder="Email.." autocomplete="off">
                     <p id="emailValidate" class="validationMsg fw-bold position-absolute" style="bottom: -16px"></p>
                 </div>
                 <div class="form-group my-2 position-relative">
                     <label for="passInput" class="fw-bold">Password</label>
-                    <input id="passInput" class="form-control border-1 border-black rounded-3 mb-5 my-2" type="password" placeholder="password..">
+                    <input id="passInput" class="form-control border-1 border-black rounded-3 mb-5 my-2" type="password" placeholder="password.." autocomplete="off">
                     <p id="passValidate" class="validationMsg fw-bold position-absolute" style="bottom: 1px"></p>
                 </div>
-                <!-- <p id="instruc" class="mx-4">
-                    By clicking Agree & Join, you agree to the LinkedIn 
-                    <a 
-                        href="https://www.linkedin.com/legal/user-agreement?session_redirect=https%3A%2F%2Fwww%2Elinkedin%2Ecom%2Ffeed%2F&trk=registration-frontend_join-form-user-agreement" 
-                        target="_blank"
-                        class="link-primary fw-bold"
-                    >
-                        User Agreement
-                    </a>
-                    , 
-                    <a 
-                        href="https://www.linkedin.com/legal/privacy-policy?session_redirect=https%3A%2F%2Fwww%2Elinkedin%2Ecom%2Ffeed%2F&trk=registration-frontend_join-form-privacy-policy"
-                        target="_blank"
-                        class="link-primary fw-bold"
-                    >
-                        Privacy Policy
-                    </a>
-                    , and 
-                    <a 
-                        href="https://www.linkedin.com/legal/cookie-policy?session_redirect=https%3A%2F%2Fwww%2Elinkedin%2Ecom%2Ffeed%2F&trk=registration-frontend_join-form-cookie-policy"
-                        target="_blank"
-                        class="link-primary fw-bold"
-                    >
-                        Cookie Policy.
-                    </a>
-                </p> -->
-                <button id="agreeBtn" type="submit" class="btn btn-primary mb-2 rounded-5" onclick="event.preventDefault();handleLogin()">Sign In</button>
+                
+                <button id="agreeBtn" type="submit" class="btn btn-primary mb-2 rounded-5" onclick="event.preventDefault();handleLogin()" disabled>Sign In</button>
 
                 <p class="or">OR</p>
 
@@ -83,7 +58,6 @@
                     </p>
                 </div>
             </form>
-            
         </div>
         
         <script 
@@ -91,6 +65,6 @@
             integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w==" 
             crossorigin="anonymous" referrerpolicy="no-referrer">
         </script>
-        <script src="../authentication.script.js"></script>
+        <script src="login.js"></script>
     </body>
 </html>
